@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/lib" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/lib/c3p0-0.9.1.2.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/lib/commons-dbutils-1.4.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/lib/jcommon-1.0.23.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/lib/jfreechart-1.0.19.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/lib/mail.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/lib/standard.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/lib" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/lib/c3p0-0.9.1.2.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/lib/commons-dbutils-1.4.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/lib/jcommon-1.0.23.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/lib/jfreechart-1.0.19.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/lib/mail.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/lib/standard.jar" charset="UTF-8" />
+  </component>
+</project>
