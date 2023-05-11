@@ -39,7 +39,7 @@
 												<div class="divbookpic">
 													<p>
 														<a href="${pageContext.request.contextPath}/findProductById?id=${p.id}">
-															<img src="${pageContext.request.contextPath}${p.imgurl}" width="115" height="129" border="0" /> 
+															<img src="${pageContext.request.contextPath}${p.imgurl}" width="115" height="129" border="0" />
 														</a>
 													</p>
 												</div>

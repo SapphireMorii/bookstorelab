@@ -19,7 +19,7 @@
 							<td style="padding-top:30px"><font
 								style="font-weight:bold; color:#ff0000">权限不足,请登录后操作</font><br />
 								<br /> 
-								<a href="${pageContext.request.contextPath }/web/index.jsp">
+								<a href="${pageContext.request.contextPath }/index.jsp">
 									<span id="second">5</span>秒后自动为您转跳回首页
 								</a>
 							</td>

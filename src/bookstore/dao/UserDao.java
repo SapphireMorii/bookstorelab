@@ -74,6 +74,10 @@ public class UserDao {
                 u.setUsername(rs.getString("username"));
                 u.setPassword(rs.getString("password"));
                 u.setRole(rs.getString("role"));
+                u.setEmail(rs.getString("email"));
+                u.setId(rs.getInt("id"));
+                u.setIntroduce(rs.getString("introduce"));
+                u.setTelephone(rs.getString("telephone"));
                 return u;
             }
             return null;

@@ -49,7 +49,7 @@
 									
 									<td align="center" style="HEIGHT: 22px" width="7%">
 										<a href="${pageContext.request.contextPath}/DeleteCommentServlet?id=${map.value[0]}">
-											<img src="${pageContext.request.contextPath}/web/admin/images/i_del.gif" width="16" height="16" border="0" style="CURSOR: hand">
+											<img src="${pageContext.request.contextPath}/admin/images/i_del.gif" width="16" height="16" border="0" style="CURSOR: hand">
 										</a>
 									</td>
 								</tr>

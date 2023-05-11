@@ -4,7 +4,7 @@
 		<meta http-equiv="Content-Language" content="zh-cn">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title></title>
-		<link href="${pageContext.request.contextPath}/web/admin/css/Style.css" rel="stylesheet" type="text/css">
+		<link href="${pageContext.request.contextPath}/admin/css/Style.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
 		<p>
@@ -21,7 +21,7 @@
 
 						<tr>
 							<td height="220" align="center" valign="middle"
-								background="${pageContext.request.contextPath}/web/admin/images/loginbg.gif">
+								background="${pageContext.request.contextPath}/admin/images/loginbg.gif">
 								<p class="style1">
 									<font color="red">上传附件错误</font>
 								</p>

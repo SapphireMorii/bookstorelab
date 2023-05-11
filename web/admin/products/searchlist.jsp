@@ -5,12 +5,12 @@
 	<meta http-equiv="Content-Language" content="zh-cn">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/client/css/main.css" type="text/css" />
-	<link href="${pageContext.request.contextPath}/web/admin/css/Style.css" rel="stylesheet" type="text/css" />
-	<script language="javascript" src="${pageContext.request.contextPath}/web/admin/js/public.js"></script>
+	<link href="${pageContext.request.contextPath}/admin/css/Style.css" rel="stylesheet" type="text/css" />
+	<script language="javascript" src="${pageContext.request.contextPath}/admin/js/public.js"></script>
 	<script type="text/javascript">
 	    //添加商品
 		function addProduct() {
-			window.location.href = "add.jsp";
+			window.location.href = "http://localhost:8080/admin/products/add.jsp";
 		}
 		//删除商品
 		function p_del() {   

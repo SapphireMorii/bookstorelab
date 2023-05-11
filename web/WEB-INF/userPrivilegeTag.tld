@@ -9,7 +9,7 @@
 
 	<tag>
 		<name>user</name>
-		<tag-class>cn.itcast.itcaststore.tag.PrivilegeTag</tag-class>
+		<tag-class>bookstore.tag.PrivilegeTag</tag-class>
 		<body-content>empty</body-content>
 	</tag>
 </taglib>

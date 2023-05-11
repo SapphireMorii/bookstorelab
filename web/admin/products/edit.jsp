@@ -4,9 +4,9 @@
 <HEAD>
 	<meta http-equiv="Content-Language" content="zh-cn">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<LINK href="${pageContext.request.contextPath}/web/admin/css/Style.css" type="text/css" rel="stylesheet">
-	<script language="javascript" src="${pageContext.request.contextPath}/web/admin/js/public.js"></script>
-	<script language="javascript" src="${pageContext.request.contextPath}/web/admin/js/check.js"></script>
+	<LINK href="${pageContext.request.contextPath}/admin/css/Style.css" type="text/css" rel="stylesheet">
+	<script language="javascript" src="${pageContext.request.contextPath}admin/js/public.js"></script>
+	<script language="javascript" src="${pageContext.request.contextPath}/admin/js/check.js"></script>
 	<script type="text/javascript">
 		//设置类别的默认值
 		function setProductCategory(t) {

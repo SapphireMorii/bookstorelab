@@ -10,7 +10,7 @@
 	<script type="text/javascript">
 	    //添加商品
 		function addProduct() {
-			window.location.href = "add.jsp";
+			window.location.href = "http://localhost:8080/admin/products/add.jsp";
 		}
 		//删除商品
 		function p_del() {   

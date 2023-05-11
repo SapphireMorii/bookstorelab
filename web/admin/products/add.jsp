@@ -3,7 +3,7 @@
 <HEAD>
 	<meta http-equiv="Content-Language" content="zh-cn">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<LINK href="${pageContext.request.contextPath}/web/admin/css/Style.css" type="text/css" rel="stylesheet">
+	<LINK href="${pageContext.request.contextPath}/admin/css/Style.css" type="text/css" rel="stylesheet">
 </HEAD>
 <body>
 	<form id="userAction_save_do" name="Form1"
@@ -65,7 +65,7 @@
 			</TR>
 			<TR>
 				<td align="center" colSpan="4" class="sep1"><img
-					src="${pageContext.request.contextPath}/web/admin/images/shim.gif">
+					src="${pageContext.request.contextPath}/admin/images/shim.gif">
 				</td>
 			</TR>
 			<tr>

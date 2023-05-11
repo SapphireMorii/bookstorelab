@@ -27,6 +27,13 @@ public class ProductDao {
         try{
             Connection connection = JDBCutil.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,p.getId());
+            preparedStatement.setString(2,p.getName());
+            preparedStatement.setDouble(3,p.getPrice());
+            preparedStatement.setString(4,p.getCategory());
+            preparedStatement.setInt(5,p.getPnum());
+            preparedStatement.setString(6,p.getImgurl());
+            preparedStatement.setString(7,p.getDescription());
             preparedStatement.executeUpdate();
         }catch (Exception e)
         {
@@ -47,15 +54,16 @@ public class ProductDao {
     public int findAllCount(String category) throws SQLException {
         String sql = "select count(*) from products";
         Connection connection = JDBCutil.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
         if (!"全部商品".equals(category)) {
             sql += " where category=?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1,category);
             ResultSet rs = preparedStatement.executeQuery();
             if(rs.next()) {
                 return rs.getInt(1);
             }
         } else {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet rs = preparedStatement.executeQuery();
             return rs.getInt(1);
         }
@@ -78,7 +86,9 @@ public class ProductDao {
             obj = new Object[] { (currentPage - 1) * currentCount,
                     currentCount, };
         }
-        return getProducts(sql);
+        QueryRunner runner = new QueryRunner(JDBCutil.getDataSource());
+        return runner.query(sql, new BeanListHandler<products>(products.class),
+                obj);
     }
 
     private List<products> getProducts(String sql) throws SQLException {
@@ -96,14 +106,8 @@ public class ProductDao {
     // 根据id查找商品
     public products findProductById(String id) throws SQLException {
         String sql = "select * from products where id=?";
-        Connection connection = JDBCutil.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        ResultSet rs = preparedStatement.executeQuery();
-        if(rs.next())
-        {
-            return generate_product(rs);
-        }
-        return null;
+        QueryRunner runner = new QueryRunner(JDBCutil.getDataSource());
+        return runner.query(sql, new BeanHandler<products>(products.class), id);
     }
 
     private products generate_product(ResultSet rs) throws SQLException {
