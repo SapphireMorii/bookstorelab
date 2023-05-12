@@ -65,7 +65,8 @@ public class ProductDao {
         } else {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet rs = preparedStatement.executeQuery();
-            return rs.getInt(1);
+            if(rs.next())
+                return rs.getInt(1);
         }
         return 0;
     }
@@ -75,20 +76,42 @@ public class ProductDao {
         // 要执行的sql语句
         String sql = null;
         // 参数
-        Object[] obj = null;
+//        Object[] obj = null;
+        Connection connection = JDBCutil.getConnection();
         // 如果category不为null,代表是按分类查找
         if (!"全部商品".equals(category)) {
             sql = "select * from products  where category=? limit ?,?";
-            obj = new Object[] { category, (currentPage - 1) * currentCount,
-                    currentCount, };
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,category);
+            preparedStatement.setInt(2,(currentPage - 1) * currentCount);
+            preparedStatement.setInt(3,currentCount);
+            ResultSet rs = preparedStatement.executeQuery();
+            List<products> list = new ArrayList<products>();
+            while (rs.next())
+            {
+                list.add(generate_product(rs));
+            }
+            return list;
+//            obj = new Object[] { category, (currentPage - 1) * currentCount,
+//                    currentCount, };
         } else {
             sql = "select * from products  limit ?,?";
-            obj = new Object[] { (currentPage - 1) * currentCount,
-                    currentCount, };
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1,(currentPage - 1) * currentCount);
+            preparedStatement.setInt(2,currentCount);
+            ResultSet rs = preparedStatement.executeQuery();
+            List<products> list = new ArrayList<products>();
+            while (rs.next())
+            {
+                list.add(generate_product(rs));
+            }
+            return list;
+//            obj = new Object[] { (currentPage - 1) * currentCount,
+//                    currentCount, };
         }
-        QueryRunner runner = new QueryRunner(JDBCutil.getDataSource());
-        return runner.query(sql, new BeanListHandler<products>(products.class),
-                obj);
+//        QueryRunner runner = new QueryRunner(JDBCutil.getDataSource());
+//        return runner.query(sql, new BeanListHandler<products>(products.class),
+//                obj);
     }
 
     private List<products> getProducts(String sql) throws SQLException {
@@ -106,8 +129,15 @@ public class ProductDao {
     // 根据id查找商品
     public products findProductById(String id) throws SQLException {
         String sql = "select * from products where id=?";
-        QueryRunner runner = new QueryRunner(JDBCutil.getDataSource());
-        return runner.query(sql, new BeanHandler<products>(products.class), id);
+        Connection connection = JDBCutil.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1,id);
+        ResultSet rs = preparedStatement.executeQuery();
+        if(rs.next())
+        {
+            return (generate_product(rs));
+        }
+        return null;
     }
 
     private products generate_product(ResultSet rs) throws SQLException {
@@ -150,7 +180,7 @@ public class ProductDao {
         List<Object> list = new ArrayList<Object>();
         String sql = "select * from products where 1=1 ";
 
-        QueryRunner runner = new QueryRunner(JDBCutil.getDataSource());
+//        QueryRunner runner = new QueryRunner(JDBCutil.getDataSource());
 
         if (id != null && id.trim().length() > 0) {
             sql += " and id=?";
@@ -172,10 +202,19 @@ public class ProductDao {
             list.add(maxprice);
         }
 
-        Object[] params = list.toArray();
-
-        return runner.query(sql, new BeanListHandler<products>(products.class),
-                params);
+//        Object[] params = list.toArray();
+        
+        List<products> products = new ArrayList<products>();
+        Connection connection = JDBCutil.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        for(int i=1;i<=list.size();i++)
+        {
+            preparedStatement.setObject(i, list.get(i));
+        }
+        ResultSet rs = preparedStatement.executeQuery();
+        return getProductList(rs, products);
+//        return runner.query(sql, new BeanListHandler<products>(products.class),
+//                params);
     }
     // 修改商品信息
     public void editProduct(products p) throws SQLException {
@@ -240,11 +279,34 @@ public class ProductDao {
                                         String searchfield) throws SQLException {
         //根据名字模糊查询图书
         String sql = "SELECT * FROM products WHERE name LIKE '%"+searchfield+"%' LIMIT ?,?";
-        QueryRunner runner = new QueryRunner(JDBCutil.getDataSource());
+        Connection connection = JDBCutil.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1,currentPage-1);
+        preparedStatement.setInt(2,currentCount);
+        ResultSet rs = preparedStatement.executeQuery();
+        List<products> productsList = new ArrayList<>();
+        return getProductList(rs, productsList);
 //		//用于分页查询的数据
 //		Object obj = new Object[] { (currentPage - 1) * currentCount, currentCount };
-        return runner.query(sql,
-                new BeanListHandler<products>(products.class),currentPage-1,currentCount);
+
+//        return runner.query(sql,
+//                new BeanListHandler<products>(products.class),currentPage-1,currentCount);
+    }
+
+    private List<products> getProductList(ResultSet rs, List<products> productsList) throws SQLException {
+        while (rs.next())
+        {
+            products product = new products();
+            product.setCategory(rs.getString("category"));
+            product.setDescription(rs.getString("description"));
+            product.setName(rs.getString("name"));
+            product.setImgurl(rs.getString("img_url"));
+            product.setId(rs.getString("id"));
+            product.setPrice(rs.getDouble("price"));
+            product.setPnum(rs.getInt("pnum"));
+            productsList.add(product);
+        }
+        return productsList;
     }
 
     /******秦  自加    *****/

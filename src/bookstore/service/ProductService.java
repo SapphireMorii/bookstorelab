@@ -147,7 +147,6 @@ public class ProductService {
                 //满足条件的图书
                 List<products> ps = dao.findBookByName(currentPage,currentCount,searchfield);
                 bean.setPs(ps);
-
             }else{
                 /******2.查找范围为当前页面（类别）*******/
                 totalCount = dao.findBookByNameCategory(searchfield,category);

@@ -38,6 +38,10 @@ public class MenuSearchServlet extends HttpServlet {
 			req.getRequestDispatcher("/showProductByPage").forward(req, resp);
 			return;
 		}
+		if(category == null)
+		{
+			category =  "全部商品";
+		}
 		//调用service层的方法，通过书名模糊查询，查找相应的图书
 		ProductService service = new ProductService();
 		/*******秦********/
