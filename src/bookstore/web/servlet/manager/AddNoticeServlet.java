@@ -39,6 +39,6 @@ public class AddNoticeServlet extends HttpServlet{
 		//调用addNotice方法
 		nService.addNotice(bean);
 		
-		req.getRequestDispatcher("/manager/ListNoticeServlet").forward(req, resp);
+		req.getRequestDispatcher("/ListNoticeServlet").forward(req, resp);
 	}
 }

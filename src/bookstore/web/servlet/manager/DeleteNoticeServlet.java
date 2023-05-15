@@ -33,6 +33,6 @@ public class DeleteNoticeServlet extends HttpServlet{
 		//调用dao层方法
 		nService.deleteNotice(n_id);
 		
-		req.getRequestDispatcher("/manager/ListNoticeServlet").forward(req, resp);
+		req.getRequestDispatcher("/ListNoticeServlet").forward(req, resp);
 	}
 }

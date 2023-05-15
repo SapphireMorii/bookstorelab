@@ -22,16 +22,16 @@
 			  	<td><a href="${pageContext.request.contextPath}/findOrders" target="mainFrame" class="left_list">订单管理</a></td>
 			  </tr>
 			  <tr>
-			  	<td><a href="${pageContext.request.contextPath}/manager/ListNoticeServlet" target="mainFrame" class="left_list">公告管理</a></td>
+			  	<td><a href="${pageContext.request.contextPath}/ListNoticeServlet" target="mainFrame" class="left_list">公告管理</a></td>
 			  </tr>
 			  <tr>
 			  	<td><a href="${pageContext.request.contextPath}/ListCommentServlet" target="mainFrame" class="left_list">评论管理</a></td>
 			  </tr>
 			   <tr>
-               <td><a href="${pageContext.request.contextPath}/manager/ListMessageServlet" target="mainFrame" class="left_list">留言管理</a></td>
+               <td><a href="${pageContext.request.contextPath}/ListMessageServlet" target="mainFrame" class="left_list">留言管理</a></td>
                </tr>
                <tr>
-			  	<td><a href="${pageContext.request.contextPath}/manager/ListPhotoServlet" target="mainFrame" class="left_list">图片管理</a></td>
+			  	<td><a href="${pageContext.request.contextPath}/ListPhotoServlet" target="mainFrame" class="left_list">图片管理</a></td>
 			  </tr>
 		</table>
 	</body>

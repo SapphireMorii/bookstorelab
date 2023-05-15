@@ -4,10 +4,10 @@
 <HEAD>
 	<meta http-equiv="Content-Language" content="zh-cn">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link href="${pageContext.request.contextPath}/web/admin/css/Style.css"
+	<link href="${pageContext.request.contextPath}/admin/css/Style.css"
 		rel="stylesheet" type="text/css" />
 	<script language="javascript"
-		src="${pageContext.request.contextPath}/web/admin/js/public.js"></script>
+		src="${pageContext.request.contextPath}/admin/js/public.js"></script>
 	<script>
 	//删除购物车中的商品
 	function message_del() {   
@@ -59,14 +59,14 @@
 										width="8%">${n.telephone}</td>	
 										<!-- 回复 -->
 									<td align="center" style="HEIGHT: 22px" width="7%">
-										<a href="${pageContext.request.contextPath}/manager/FindByIdMessageServlet?id=${n.id}">
-											<img src="${pageContext.request.contextPath}/web/admin/images/i_edit.gif" border="0" style="CURSOR: hand">
+										<a href="${pageContext.request.contextPath}/FindByIdMessageServlet?id=${n.id}">
+											<img src="${pageContext.request.contextPath}/admin/images/i_edit.gif" border="0" style="CURSOR: hand">
 										</a>
 									</td>
 									<!-- 删除 -->
 									<td align="center" style="HEIGHT: 22px" width="7%">
-										<a href="${pageContext.request.contextPath}/manager/DeleteMessageServlet?id=${n.id}"  onclick="javascript:return message_del()">
-											<img src="${pageContext.request.contextPath}/web/admin/images/i_del.gif" width="16" height="16" border="0" style="CURSOR: hand">
+										<a href="${pageContext.request.contextPath}/DeleteMessageServlet?id=${n.id}"  onclick="javascript:return message_del()">
+											<img src="${pageContext.request.contextPath}/admin/images/i_del.gif" width="16" height="16" border="0" style="CURSOR: hand">
 										</a>
 									</td>
 								</tr>

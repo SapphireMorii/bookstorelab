@@ -8,7 +8,7 @@
 
 <body>
 	<form id="userAction_save_do" name="Form1"
-		action="${pageContext.request.contextPath}/manager/AddPhotoServlet" method="post"
+		action="${pageContext.request.contextPath}/AddPhotoServlet" method="post"
 		enctype="multipart/form-data">
 		&nbsp;
 		<table cellSpacing="1" cellPadding="5" width="100%" align="center"

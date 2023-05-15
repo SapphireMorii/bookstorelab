@@ -16,7 +16,7 @@
 						border="0" cellspacing="0" style="margin-top:70px">
 						<tr>
 							<td style="width:98">
-								<img src="../images/error.jpg" width="128" height="128" />
+								<img src="../client/images/error.jpg" width="128" height="128" />
 							</td>
 							<td style="padding-top:30px"><font
 								style="font-weight:bold; color:#ff0000">权限不足,请登录后操作</font><br />

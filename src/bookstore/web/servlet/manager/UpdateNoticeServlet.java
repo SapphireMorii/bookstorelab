@@ -40,6 +40,6 @@ public class UpdateNoticeServlet extends HttpServlet{
 		//调用dao层方法
 		nService.addNotice(bean);
 		
-		req.getRequestDispatcher("/manager/ListNoticeServlet").forward(req, resp);
+		req.getRequestDispatcher("/ListNoticeServlet").forward(req, resp);
 	}
 }

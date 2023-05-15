@@ -9,7 +9,7 @@
 	<script type="text/javascript">
 	    //添加商品
 		function addPicture() {
-			window.location.href = "photo.jsp";
+			window.location.href = "http://localhost:8080/admin/photo/photo.jsp";
 		}
 		//删除商品
 		function p_del() {   
@@ -93,13 +93,13 @@
 										
 									</td>
 									<td align="center" style="HEIGHT: 22px" width="7%">
-										<a href="${pageContext.request.contextPath}/manager/EditPhotoServlet?id=${p.id}" onclick="javascript:return p_edit()">
+										<a href="${pageContext.request.contextPath}/EditPhotoServlet?id=${p.id}" onclick="javascript:return p_edit()">
 												<img src="${pageContext.request.contextPath}/admin/images/i_edit.gif"
 												width="16" height="16" border="0" style="CURSOR: hand">
 										</a>
 									</td>
 									<td align="center" style="HEIGHT: 22px" width="7%">
-										<a href="${pageContext.request.contextPath}/manager/DeletePhotoServlet?id=${p.id}" onclick="javascript:return p_del()">
+										<a href="${pageContext.request.contextPath}/DeletePhotoServlet?id=${p.id}" onclick="javascript:return p_del()">
 												<img src="${pageContext.request.contextPath}/admin/images/i_del.gif"
 												width="16" height="16" border="0" style="CURSOR: hand">
 										</a>

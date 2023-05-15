@@ -48,7 +48,7 @@ public class replyMessageServlet extends HttpServlet {
 		message.setId(id);
 		//调用dao层方法
 		mService.updateMessage(message);
-		request.getRequestDispatcher("/manager/ListMessageServlet").forward(request, response);
+		request.getRequestDispatcher("/ListMessageServlet").forward(request, response);
 	}
 
 }

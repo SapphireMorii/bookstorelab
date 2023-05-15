@@ -41,7 +41,7 @@ public class EditPhotoServlet extends HttpServlet {
 		 pService.updatePhoto(id);
 		//request.setAttribute("message",message);
 		 response.sendRedirect(request.getContextPath()
-					+ "/manager/ListPhotoServlet");
+					+ "/ListPhotoServlet");
 	}
 
 }

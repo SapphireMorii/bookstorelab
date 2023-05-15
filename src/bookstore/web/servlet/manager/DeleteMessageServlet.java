@@ -39,7 +39,7 @@ public class DeleteMessageServlet extends HttpServlet {
 		MessageService service = new MessageService();
 		// 调用service完成添加商品操作
 		service.deleteMessage(id);;;
-		response.sendRedirect(request.getContextPath() + "/manager/ListMessageServlet");
+		response.sendRedirect(request.getContextPath() + "/ListMessageServlet");
 		return;
 }
 

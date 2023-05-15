@@ -133,7 +133,7 @@ public class AddPhotoServlet extends HttpServlet {
 		service.addPhoto(p);
 		//System.out.print(p.getImg());
 		response.sendRedirect(request.getContextPath()
-				+ "/manager/ListPhotoServlet");
+				+ "/ListPhotoServlet");
 		return;
 	}
 }	

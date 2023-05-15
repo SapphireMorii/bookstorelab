@@ -39,7 +39,7 @@ public class DeletePhotoServlet extends HttpServlet {
 				PhotoService service = new PhotoService();
 				// 调用service完成添加商品操作
 				service.deletePhoto(id);;
-				response.sendRedirect(request.getContextPath() + "/manager/ListPhotoServlet");
+				response.sendRedirect(request.getContextPath() + "/ListPhotoServlet");
 				return;
 	}
 

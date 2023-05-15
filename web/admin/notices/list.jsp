@@ -10,7 +10,7 @@
 		src="${pageContext.request.contextPath}/admin/js/public.js"></script>
 	<script type="text/javascript">
 		function addNotice() {
-			window.location.href = "add.jsp";
+			window.location.href = "http://localhost:8080/admin/notices/add.jsp";
 		}
 	</script>
 </HEAD>
@@ -56,12 +56,12 @@
 									<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 										width="8%">${n.n_time }</td>
 									<td align="center" style="HEIGHT: 22px" width="7%">
-										<a href="${pageContext.request.contextPath}/manager/FindByIdNoticeServlet?id=${n.n_id}">
+										<a href="${pageContext.request.contextPath}/FindByIdNoticeServlet?id=${n.n_id}">
 											<img src="${pageContext.request.contextPath}/admin/images/i_edit.gif" border="0" style="CURSOR: hand">
 										</a>
 									</td>
 									<td align="center" style="HEIGHT: 22px" width="7%">
-										<a href="${pageContext.request.contextPath}/manager/DeleteNoticeServlet?id=${n.n_id}">
+										<a href="${pageContext.request.contextPath}/DeleteNoticeServlet?id=${n.n_id}">
 											<img src="${pageContext.request.contextPath}/admin/images/i_del.gif" width="16" height="16" border="0" style="CURSOR: hand">
 										</a>
 									</td>

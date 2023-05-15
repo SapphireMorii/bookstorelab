@@ -240,7 +240,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ListNoticeServlet</servlet-name>
-    <url-pattern>/manager/ListNoticeServlet</url-pattern>
+    <url-pattern>/ListNoticeServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>AddNoticeServlet</servlet-name>
@@ -248,7 +248,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>AddNoticeServlet</servlet-name>
-    <url-pattern>/manager/AddNoticeServlet</url-pattern>
+    <url-pattern>/AddNoticeServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>UpdateNoticeServlet</servlet-name>
@@ -264,7 +264,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>FindByIdNoticeServlet</servlet-name>
-    <url-pattern>/manager/FindByIdNoticeServlet</url-pattern>
+    <url-pattern>/FindByIdNoticeServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>EditNoticeServlet</servlet-name>
@@ -272,7 +272,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>EditNoticeServlet</servlet-name>
-    <url-pattern>/manager/EditNoticeServlet</url-pattern>
+    <url-pattern>/EditNoticeServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>DeleteNoticeServlet</servlet-name>
@@ -280,7 +280,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>DeleteNoticeServlet</servlet-name>
-    <url-pattern>/manager/DeleteNoticeServlet</url-pattern>
+    <url-pattern>/DeleteNoticeServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>MenuSearchServlet</servlet-name>
@@ -428,7 +428,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ListMessageServlet</servlet-name>
-    <url-pattern>/manager/ListMessageServlet</url-pattern>
+    <url-pattern>/ListMessageServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -438,7 +438,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>replyMessageServlet</servlet-name>
-    <url-pattern>/manager/replyMessageServlet</url-pattern>
+    <url-pattern>/replyMessageServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -448,7 +448,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>FindByIdMessageServlet</servlet-name>
-    <url-pattern>/manager/FindByIdMessageServlet</url-pattern>
+    <url-pattern>/FindByIdMessageServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -458,7 +458,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>AddPhotoServlet</servlet-name>
-    <url-pattern>/manager/AddPhotoServlet</url-pattern>
+    <url-pattern>/AddPhotoServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -478,7 +478,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ListPhotoServlet</servlet-name>
-    <url-pattern>/manager/ListPhotoServlet</url-pattern>
+    <url-pattern>/ListPhotoServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -488,7 +488,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>DeletePhotoServlet</servlet-name>
-    <url-pattern>/manager/DeletePhotoServlet</url-pattern>
+    <url-pattern>/DeletePhotoServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -508,7 +508,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>EditPhotoServlet</servlet-name>
-    <url-pattern>/manager/EditPhotoServlet</url-pattern>
+    <url-pattern>/EditPhotoServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -518,7 +518,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>DeleteMessageServlet</servlet-name>
-    <url-pattern>/manager/DeleteMessageServlet</url-pattern>
+    <url-pattern>/DeleteMessageServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>

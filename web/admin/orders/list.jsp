@@ -111,7 +111,7 @@
 										<!--  未支付 ，不能删除-->
 										<c:if test="${order.paystate==0 }">
 											<a href="javascript:alert('不能删除未支付订单')">
-												<img src="${pageContext.request.contextPath}/web/admin/images/i_del.gif" width="16" height="16" border="0" style="CURSOR: hand">
+												<img src="${pageContext.request.contextPath}/admin/images/i_del.gif" width="16" height="16" border="0" style="CURSOR: hand">
 											</a>
 										</c:if>
 									</td>
