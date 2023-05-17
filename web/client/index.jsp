@@ -22,11 +22,11 @@
 	<div id="box_autoplay">
     	<div class="list">
         	<ul>
-            	<li><img src="${pageContext.request.contextPath }/${pho[0].img}?randomNum=${randomNum}" width="900" height="335" /></li>
-            	<li><img src="${pageContext.request.contextPath }/${pho[1].img}?randomNum=${randomNum}" width="900" height="335" /></li>
-            	<li><img src="${pageContext.request.contextPath }/${pho[2].img}?randomNum=${randomNum}" width="900" height="335" /></li>
-            	<li><img src="${pageContext.request.contextPath }/${pho[3].img}?randomNum=${randomNum}" width="900" height="335" /></li>
-            	<li><img src="${pageContext.request.contextPath }/${pho[4].img}?randomNum=${randomNum}" width="900" height="335" /></li>
+            	<li><img src="${pageContext.request.contextPath }${pho[0].img}?randomNum=${randomNum}" width="900" height="335" /></li>
+            	<li><img src="${pageContext.request.contextPath }${pho[1].img}?randomNum=${randomNum}" width="900" height="335" /></li>
+            	<li><img src="${pageContext.request.contextPath }${pho[2].img}?randomNum=${randomNum}" width="900" height="335" /></li>
+            	<li><img src="${pageContext.request.contextPath }${pho[3].img}?randomNum=${randomNum}" width="900" height="335" /></li>
+            	<li><img src="${pageContext.request.contextPath }${pho[4].img}?randomNum=${randomNum}" width="900" height="335" /></li>
         	</ul>
     	</div>
 	</div>

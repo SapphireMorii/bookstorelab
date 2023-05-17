@@ -40,7 +40,7 @@ function checkReceiverName() {		// 验证收货人
 }
 
 function checkReceiverPhone() {		// 验证联系方式
-	var regex =/^1[3,5,8]\d{9}$/;	//以13、15、18开头的手机号
+	var regex =/^1[3,5,8,9]\d{9}$/;	//以13、15、18,19开头的手机号
 	var value =receiverPhoneObj.value;
 	var msg = "";
 	if (!value)

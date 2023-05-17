@@ -10,6 +10,7 @@
           <element id="library" level="application" name="lib (2)" />
           <element id="library" level="project" name="lib" />
         </element>
+        <element id="dir-copy" path="$PROJECT_DIR$/web/temp" />
       </element>
       <element id="javaee-facet-resources" facet="bookstorelab/web/Web" />
     </root>

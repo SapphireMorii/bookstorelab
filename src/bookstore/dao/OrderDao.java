@@ -22,13 +22,13 @@ public class OrderDao {
      */
     public void addProduct(orders order) throws SQLException {
         // 1.生成Sql语句
-        String sql = "insert into orders values(?,?,0,null,0,?)";
+        String sql = "insert into orders values(?,?,0,null,0,?,?)";
         // 2.生成执行sql语句的QueryRunner,不传递参数
         QueryRunner runner = new QueryRunner();
         // 3.执行update()方法插入数据
         runner.update(JDBCutil.getConnection(), sql, order.getId(),
                 order.getMoney(), order
-                        .getUser().getId());
+                        .getUser().getId(),order.getReceiverAddress());
 
     }
     /**
@@ -47,6 +47,9 @@ public class OrderDao {
                     order.setOrdertime(rs.getDate("ordertime"));
                     order.setPaystate(rs.getInt("paystate"));
                     order.setScore(rs.getDouble("score"));
+                    order.setReceiverAddress(rs.getString("receiverAddress"));
+                    order.setReceiverName(rs.getString("ReceiverName"));
+                    order.setReceiverPhone(rs.getString("ReceiverPhone"));
                     order.setUser(user);
                     orders.add(order);
                 }
@@ -72,15 +75,19 @@ public class OrderDao {
                     order.setOrdertime(rs.getDate("orders.ordertime"));
                     order.setPaystate(rs.getInt("orders.paystate"));
                     order.setScore(rs.getDouble("score"));
+                    order.setReceiverAddress(rs.getString("receiverAddress"));
+                    order.setReceiverName(rs.getString("ReceiverName"));
+                    order.setReceiverPhone(rs.getString("ReceiverPhone"));
+
 
                     user user = new user();
                     user.setId(rs.getInt("user.id"));
                     user.setEmail(rs.getString("user.email"));
                     user.setGender(rs.getString("user.gender"));
-                    user.setActiveCode(rs.getString("user.activecode"));
+                    user.setActiveCode(rs.getString("user.active_code"));
                     user.setIntroduce(rs.getString("user.introduce"));
                     user.setPassword(rs.getString("user.password"));
-                    user.setRegistTime(rs.getDate("user.registtime"));
+                    user.setRegistTime(rs.getDate("user.regist_time"));
                     user.setRole(rs.getString("user.role"));
                     user.setState(rs.getInt("user.state"));
                     user.setTelephone(rs.getString("user.telephone"));
@@ -114,6 +121,9 @@ public class OrderDao {
                     order.setOrdertime(rs.getDate("orders.ordertime"));
                     order.setPaystate(rs.getInt("orders.paystate"));
                     order.setScore(rs.getDouble("score"));
+                    order.setReceiverAddress(rs.getString("receiverAddress"));
+                    order.setReceiverName(rs.getString("ReceiverName"));
+                    order.setReceiverPhone(rs.getString("ReceiverPhone"));
                     orders.add(order);
 
                     user user = new user();
@@ -201,6 +211,9 @@ public class OrderDao {
                     order.setOrdertime(rs.getDate("orders.ordertime"));
                     order.setPaystate(rs.getInt("orders.paystate"));
                     order.setScore(rs.getDouble("score"));
+                    order.setReceiverAddress(rs.getString("orders.receiverAddress"));
+                    order.setReceiverName(rs.getString("orders.ReceiverName"));
+                    order.setReceiverPhone(rs.getString("orders.ReceiverPhone"));
                     orders.add(order);
 
                     user user = new user();

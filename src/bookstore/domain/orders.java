@@ -13,10 +13,16 @@ public class orders {
     private int paystate; // 订单状态
     private Date ordertime; // 下单时间
     private double score;  //订单积分
-
+    private String receiverAddress; // 送货地址
+    private String receiverName; // 收货人姓名
+    private String receiverPhone; // 收货人电话
     private user user; // 订单所属用户
+
     private List<orderitem> orderItems = new ArrayList<orderitem>();
 
+    public String getReceiverAddress() {
+        return receiverAddress;
+    }
     public List<orderitem> getOrderItems() {
         return orderItems;
     }
@@ -24,6 +30,26 @@ public class orders {
     public void setOrderItems(List<orderitem> orderItems) {
         this.orderItems = orderItems;
     }
+    public void setReceiverAddress(String receiverAddress) {
+        this.receiverAddress = receiverAddress;
+    }
+
+    public String getReceiverName() {
+        return receiverName;
+    }
+
+    public void setReceiverName(String receiverName) {
+        this.receiverName = receiverName;
+    }
+
+    public String getReceiverPhone() {
+        return receiverPhone;
+    }
+
+    public void setReceiverPhone(String receiverPhone) {
+        this.receiverPhone = receiverPhone;
+    }
+
 
     public String getId() {
         return id;
@@ -69,7 +95,9 @@ public class orders {
     public String toString() {
         return "orders [id=" + id + ", money=" + money + ", paystate=" + paystate
                 + ", ordertime=" + ordertime + ", user=" + user
-                + ", orderItems=" + orderItems + "]";
+                +", receiverName=" + receiverName
+                + ", receiverPhone=" + receiverPhone + ", receiverAddress="
+                + receiverAddress +", orderItems=" + orderItems + "]";
     }
 
     public double getScore() {

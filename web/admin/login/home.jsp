@@ -11,7 +11,7 @@
     </style>
    </head>
 <frameset rows="103,*,43" frameborder=0 border="0" framespacing="0">
-  <frame src="/admin/login/to${pageContext.request.contextPath}p.jsp" name="topFrame" scrolling="NO" noresize>
+  <frame src="${pageContext.request.contextPath}/admin/login/top.jsp" name="topFrame" scrolling="NO" noresize>
   <frameset cols="159,*" frameborder="0" border="0" framespacing="0">
 		<frame src="${pageContext.request.contextPath}/admin/login/left.jsp" name="leftFrame" noresize scrolling="YES">
 		<frame src="${pageContext.request.contextPath}/admin/login/welcome.jsp" name="mainFrame">

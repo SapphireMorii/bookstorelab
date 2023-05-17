@@ -98,7 +98,7 @@
 									<c:forEach items="${orders}" var="order">
 										<tr>
 											<td class="tableopentd02">${order.id}</td>
-											<td class="tableopentd02">${order.receiverName }</td>
+											<td class="tableopentd02">${order.user.username}</td>
 											<td class="tableopentd02">${order.ordertime}</td>
 											<td class="tableopentd02">${order.paystate==0?"未支付":"已支付"}</td>
 											<td class="tableopentd03">

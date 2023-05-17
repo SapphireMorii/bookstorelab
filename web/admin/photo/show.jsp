@@ -89,7 +89,7 @@
 									
 									<td align="center" style="HEIGHT: 22px" width="7%">
 									    
-											<img src="${pageContext.request.contextPath}/${p.img}" width="100" height="50"> 
+											<img src="${pageContext.request.contextPath}${p.img}" width="100" height="50">
 										
 									</td>
 									<td align="center" style="HEIGHT: 22px" width="7%">

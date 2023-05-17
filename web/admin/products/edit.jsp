@@ -85,7 +85,7 @@
 			</TR>
 			<TR>
 				<td align="center" colSpan="4" class="sep1">
-					<img src="${pageContext.request.contextPath}/web/admin/images/shim.gif">
+					<img src="${pageContext.request.contextPath}/admin/images/shim.gif">
 				</td>
 			</TR>
 			<tr>

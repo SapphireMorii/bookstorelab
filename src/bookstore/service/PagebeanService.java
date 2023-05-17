@@ -28,6 +28,10 @@ public class PagebeanService {
         if(end>bean.getTotalCount()){// 当最后一页显示的数据少于6个时
             end = begin+bean.getTotalCount()-(end-5);
         }
+        if(end<begin)
+        {
+            return null;
+        }
         List<orders> ps1 =new ArrayList<orders>(ps.subList(begin,end));
         // 封装数据
         bean.setPs(ps1);
