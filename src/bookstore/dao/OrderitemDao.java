@@ -81,13 +81,13 @@ public class OrderitemDao {
                 while (rs.next()) {
                     orderitem item = new orderitem();
                     item.setOrder(order);
-                    item.setBuynum(rs.getInt("buynum"));
+                    item.setBuynum(rs.getInt("buy_num"));
 
                     products p = new products();
                     p.setCategory(rs.getString("category"));
                     p.setId(rs.getString("id"));
                     p.setDescription(rs.getString("description"));
-                    p.setImgurl(rs.getString("imgurl"));
+                    p.setImgurl(rs.getString("img_url"));
                     p.setName(rs.getString("name"));
                     p.setPnum(rs.getInt("pnum"));
                     p.setPrice(rs.getDouble("price"));

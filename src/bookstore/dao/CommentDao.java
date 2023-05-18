@@ -54,7 +54,7 @@ public class CommentDao {
                     comment.setProductId(rs.getString("product_id"));
                     //comment.setProductName(rs.getString("product_name"));
                     comment.setUserId(rs.getInt("user_id"));
-                    comment.setCommentstate(rs.getInt("commentstate"));
+                    comment.setCommentstate(rs.getInt("comment_state"));
                     comment.setContent(rs.getString("content"));
                     comments.add(comment);
                 }
@@ -89,7 +89,7 @@ public class CommentDao {
                     comment.setOrder(order);
                     comment.setProductId(rs.getString("product_id"));
                     comment.setUserId(rs.getInt("user_id"));
-                    comment.setCommentstate(rs.getInt("commentstate"));
+                    comment.setCommentstate(rs.getInt("comment_state"));
                     comment.setContent(rs.getString("content"));
                     comments.add(comment);
                 }

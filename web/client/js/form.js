@@ -1,4 +1,4 @@
-var emailObj;
+﻿var emailObj;
 var usernameObj;
 var passwordObj;
 var confirmObj;
@@ -37,8 +37,8 @@ function checkEmail() {			// 验证邮箱
 	else if (!regex.test(value))
 		msg = "邮箱格式不合法：";
 	emailMsg.innerHTML = msg;
-	emailObj.parentNode.parentNode.style.color = msg === "" ? "black" : "red";
-	return msg === "";
+	emailObj.parentNode.parentNode.style.color = msg == "" ? "black" : "red";
+	return msg == "";
 }
 
 function checkUsername() {		// 验证用户名

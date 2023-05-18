@@ -40,19 +40,19 @@ public class FindSellByManyConditions extends HttpServlet {
 		if(ps==null){
 			request.setAttribute("map", map);
 			System.out.println("=========未输入条件");
-		}
-		
-		for (int i = 0; i < ps.size(); i++) {
-			Object[] arr=ps.get(i);
-			try {
-				System.out.println(arr[0]+"--"+arr[1]);
-				map.put(service.findProductByName(String.valueOf(arr[0])),String.valueOf(arr[1]));
-				//以商品名找到商品的属性，封装在map 里
-			} catch (FindProductByIdException e) {
-				e.printStackTrace();
-				System.out.println("找不到");
+		}else {
+			for (int i = 0; i < ps.size(); i++) {
+				Object[] arr = ps.get(i);
+				try {
+					System.out.println(arr[0] + "--" + arr[1]);
+					map.put(service.findProductByName(String.valueOf(arr[0])), String.valueOf(arr[1]));
+					//以商品名找到商品的属性，封装在map 里
+				} catch (FindProductByIdException e) {
+					e.printStackTrace();
+					System.out.println("找不到");
 				}
 			}
+		}
 		int flag=0;
 		if(map.size()>1){
 			ChartPie1 chart= new ChartPie1();

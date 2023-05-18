@@ -130,10 +130,10 @@ public class OrderDao {
                     user.setId(rs.getInt("user.id"));
                     user.setEmail(rs.getString("user.email"));
                     user.setGender(rs.getString("user.gender"));
-                    user.setActiveCode(rs.getString("user.activecode"));
+                    user.setActiveCode(rs.getString("user.active_code"));
                     user.setIntroduce(rs.getString("user.introduce"));
                     user.setPassword(rs.getString("user.password"));
-                    user.setRegistTime(rs.getDate("user.registtime"));
+                    user.setRegistTime(rs.getDate("user.regist_time"));
                     user.setRole(rs.getString("user.role"));
                     user.setState(rs.getInt("user.state"));
                     user.setTelephone(rs.getString("user.telephone"));

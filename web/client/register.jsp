@@ -1,12 +1,12 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <head>
-
 <title>传智书城注册页面</title>
 <%--导入css和js --%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/client/css/main.css" type="text/css"/>
-<script type="text/javascript" src="${pageContext.request.contextPath}/client/js/form.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/client/js/form.js" charset = UTF-8></script>
 <script type="text/javascript">
 	function changeImage() {
 		// 改变验证码图片中的文字

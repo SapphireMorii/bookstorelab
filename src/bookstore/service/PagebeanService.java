@@ -32,7 +32,7 @@ public class PagebeanService {
         {
             return null;
         }
-        List<orders> ps1 =new ArrayList<orders>(ps.subList(begin,end));
+        List<orders> ps1 =new ArrayList<orders>(ps.subList(begin,end+1));
         // 封装数据
         bean.setPs(ps1);
         return bean;

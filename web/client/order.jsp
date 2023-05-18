@@ -6,7 +6,7 @@
 <head>
 	<title>电子书城</title>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/client/css/main.css" type="text/css" />
-	<script type="text/javascript" src="${pageContext.request.contextPath}/client/js/order.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/client/js/order.js" charset="UTF-8"></script>
 </head>
 <body class="main">
 	<p:user/>
