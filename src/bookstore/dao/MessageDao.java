@@ -1,6 +1,7 @@
 package bookstore.dao;
 
 import bookstore.domain.message;
+import bookstore.domain.user;
 import bookstore.util.JDBCutil;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
@@ -8,6 +9,8 @@ import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,7 +21,7 @@ public class MessageDao {
     public void addHelpMessage(message help) throws SQLException {
         String sql = "insert into message(title,content,user_id,telephone,replycontent,send_time) values(?,?,?,?,?,?)";
         QueryRunner runner = new QueryRunner(JDBCutil.getDataSource());
-        int row = runner.update(sql, help.getTitle(),help.getContent(),help.getUserid(),
+        int row = runner.update(sql, help.getTitle(),help.getContent(),help.getUser().getId(),
                 help.getTelephone(),help.getReplycontent(),help.getSend_time());
         if (row == 0) {
             throw new RuntimeException();
@@ -28,19 +31,25 @@ public class MessageDao {
     //后台系统，根据id查找公告
     public List<message> findMessageByuserid(int id) throws SQLException {
 
-        String sql = "select * from message where user_id = ?";
+        String sql = "select * from message,user where user.id=message.user_id and user_id= ?";
         QueryRunner runner = new QueryRunner(JDBCutil.getDataSource());
         return runner.query(sql, new ResultSetHandler<List<message>>() {
             public List<message> handle(ResultSet rs) throws SQLException {
                 List<message> messages = new ArrayList<message>();
                 while (rs.next()) {
                     message message = new message();
-                    message.setId(rs.getInt("id"));
+                    message.setId(rs.getInt("message.id"));
                     message.setTitle(rs.getString("title"));
                     message.setContent(rs.getString("content"));
                     message.setReplycontent(rs.getString("replycontent"));
+                    message.setTelephone(rs.getString("message.telephone"));
 
-                    //message.setUser(user);
+                    user user = new user();
+                    user.setId(rs.getInt("user_id"));
+                    user.setUsername(rs.getString("username"));
+                    user.setEmail(rs.getString("email"));
+
+                    message.setUser(user);
                     messages.add(message);
                 }
                 return messages;
@@ -49,13 +58,34 @@ public class MessageDao {
     }
     //后台系统，查询所有的留言
     public List<message> getAllMessages() throws SQLException {
-        String sql = "select * from message";
+        String sql = "select * from message,user where message.user_id = user.id";
         QueryRunner runner = new QueryRunner(JDBCutil.getDataSource());
-        return runner.query(sql, new BeanListHandler<message>(message.class));
+        return runner.query(sql, new ResultSetHandler<List<message>>() {
+            public List<message> handle(ResultSet rs) throws SQLException {
+                List<message> messages = new ArrayList<message>();
+                while (rs.next()) {
+                    message message = new message();
+                    message.setId(rs.getInt("message.id"));
+                    message.setTitle(rs.getString("title"));
+                    message.setContent(rs.getString("content"));
+                    message.setReplycontent(rs.getString("replycontent"));
+                    message.setTelephone(rs.getString("message.telephone"));
+
+                    user user = new user();
+                    user.setId(rs.getInt("user_id"));
+                    user.setUsername(rs.getString("username"));
+                    user.setEmail(rs.getString("email"));
+
+                    message.setUser(user);
+                    messages.add(message);
+                }
+                return messages;
+            }
+        });
     }
     //后台系统，查询最新添加的留言信息
     public message getRecentMessage() throws SQLException {
-        String sql = "select * from message";
+        String sql = "select * from message,user where message.user_id = user.id";
         QueryRunner runner = new QueryRunner(JDBCutil.getDataSource());
         return runner.query(sql, new BeanHandler<message>(message.class));
     }
@@ -74,9 +104,31 @@ public class MessageDao {
     }
     //后台系统，根据id查找公告
     public message findMessageById(String id) throws SQLException {
-        String sql = "select * from message where id = ?";
-        QueryRunner runner = new QueryRunner(JDBCutil.getDataSource());
-        return runner.query(sql, new BeanHandler<message>(message.class),id);
+        String sql = "select * from message,user where message.id = ? and message.user_id = user.id";
+//        QueryRunner runner = new QueryRunner(JDBCutil.getDataSource());
+//        return runner.query(sql, new BeanHandler<message>(message.class),id);
+        Connection connection = JDBCutil.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1,id);
+        ResultSet rs = preparedStatement.executeQuery();
+        message message = new message();
+        if(rs.next())
+        {
+            message.setId(rs.getInt("message.id"));
+            message.setTitle(rs.getString("title"));
+            message.setContent(rs.getString("content"));
+            message.setReplycontent(rs.getString("replycontent"));
+            message.setTelephone(rs.getString("message.telephone"));
+
+            user user = new user();
+            user.setId(rs.getInt("user_id"));
+            user.setUsername(rs.getString("username"));
+            user.setEmail(rs.getString("email"));
+
+            message.setUser(user);
+            return message;
+        }
+        return null;
     }
 
 }

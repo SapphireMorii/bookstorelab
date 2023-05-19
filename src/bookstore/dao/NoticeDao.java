@@ -8,15 +8,33 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.Connection;
 import javax.sql.DataSource;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class NoticeDao {
     //后台系统，查询所有的公告
     public List<notice> getAllNotices() throws SQLException {
         String sql = "select * from notice order by time desc limit 0,10";
-        QueryRunner runner = new QueryRunner(JDBCutil.getDataSource());
-        return runner.query(sql, new BeanListHandler<notice>(notice.class));
+//        QueryRunner runner = new QueryRunner(JDBCutil.getDataSource());
+//        return runner.query(sql, new BeanListHandler<notice>(notice.class));
+        Connection connection = JDBCutil.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        ResultSet rs = preparedStatement.executeQuery();
+        List<notice> noticeList = new ArrayList<>();
+        while (rs.next())
+        {
+            notice notice = new notice();
+            notice.setN_id(rs.getInt("id"));
+            notice.setTitle(rs.getString("title"));
+            notice.setDetails(rs.getString("details"));
+            notice.setN_time(rs.getString("time"));
+
+            noticeList.add(notice);
+        }
+        return noticeList;
     }
 
     //后台系统，添加公告

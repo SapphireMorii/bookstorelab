@@ -45,12 +45,12 @@ public class AddmessageSelvlet extends HttpServlet {
 		user user = (user) request.getSession().getAttribute("user");
 		message helpMessage = new message();
 	    MessageDao dao = new MessageDao();
-	   int userid=user.getId();
+//	   int userid=user.getId();
 	    //将当前时间设为添加留言的时间
 		String t = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
 	  		helpMessage.setSend_time(t);
 	  		//System.out.println(t);
-	  		helpMessage.setUserid(userid);;
+	  		helpMessage.setUser(user);;
 		try{
 			BeanUtils.populate(helpMessage, request.getParameterMap());
 			dao.addHelpMessage(helpMessage);

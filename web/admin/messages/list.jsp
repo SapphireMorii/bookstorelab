@@ -54,7 +54,7 @@
 									<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 										width="8%">${n.content }</td>
 									<td style="CURSOR: hand; HEIGHT: 22px" align="center"
-										width="8%">${n.username }</td>
+										width="8%">${n.user.username }</td>
 									<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 										width="8%">${n.telephone}</td>	
 										<!-- 回复 -->

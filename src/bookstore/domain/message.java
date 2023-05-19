@@ -3,12 +3,13 @@ package bookstore.domain;
 public class message {
     @Override
     public String toString() {
-        return "message [id=" + id + ", title=" + title + ", content=" + content + ", user_id=" + user_id
+        return "message [id=" + id + ", title=" + title + ", content=" + content + ", user=" + user
                 + ", telephone=" + telephone + ", replycontent=" + replycontent + ", send_time=" + send_time + "]";
     }
     private static final long serialVersionUID = 1L;
     private int id;
-    private int user_id;
+    private user user;
+//    private int user_id;
     private String title; // 留言标题
     private String content; // 留言内容
     private String telephone; // 用户联系电话
@@ -39,12 +40,18 @@ public class message {
     public void setContent(String content) {
         this.content = content;
     }
-    public int getUserid() {
-        return user_id;
+    public user getUser() {
+        return user;
     }
-    public void setUserid(int user_id) {
-        this.user_id = user_id;
+    public void setUser(user user) {
+        this.user = user;
     }
+//    public int getUserid() {
+//        return user_id;
+//    }
+//    public void setUserid(int user_id) {
+//        this.user_id = user_id;
+//    }
     public String getTelephone() {
         return telephone;
     }

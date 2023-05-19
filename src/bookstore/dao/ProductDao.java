@@ -18,6 +18,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ProductDao {
     // 添加商品
@@ -370,7 +371,7 @@ public class ProductDao {
     /******  自加
      * @throws SQLException *****/
     public List<Object[]> salesListByManyConditions(String year, String month, String name, String category) throws SQLException {
-        if(year==""&&month==""&&name==""&&category==""){
+        if(year.equals("")&&month.equals("0")&&name.equals("")&&category.equals("")){
             String sql = "SELECT products.name,SUM(orderitem.buy_num) totalsalnum FROM orders,products,orderItem "
                     + "WHERE orders.id=orderItem.order_id AND products.id=orderItem.product_id "
                     + "AND orders.paystate=1  "
@@ -380,7 +381,7 @@ public class ProductDao {
             QueryRunner runner = new QueryRunner(JDBCutil.getDataSource());
             return runner.query(sql, new ArrayListHandler());
         }
-        else if(year!=""&&month!=""&&name!=""){
+        else if(!year.equals("") && !Objects.equals(month, "0") && !Objects.equals(name, "")){
             String sql = "SELECT products.name,SUM(orderitem.buy_num) totalsalnum FROM orders,products,orderItem "
                     + "WHERE orders.id=orderItem.order_id AND products.id=orderItem.product_id "
                     + "AND orders.paystate=1 and year(ordertime)=? "
@@ -391,7 +392,7 @@ public class ProductDao {
             System.out.println("已找year!=null&&month!=null&&name!=null");
             QueryRunner runner = new QueryRunner(JDBCutil.getDataSource());
             return runner.query(sql, new ArrayListHandler(), year, month, name);
-        }else if(year!=""&&month!=""&&category!=""){
+        }else if(!year.equals("") && !Objects.equals(month, "0") && !Objects.equals(category, "")){
             String sql = "SELECT products.name,SUM(orderitem.buy_num) totalsalnum FROM orders,products,orderItem "
                     + "WHERE orders.id=orderItem.order_id AND products.id=orderItem.product_id "
                     + "AND orders.paystate=1 and year(ordertime)=? "
@@ -402,7 +403,7 @@ public class ProductDao {
             System.out.println("已找year!=null&&month!=null&&category!=null");
             QueryRunner runner = new QueryRunner(JDBCutil.getDataSource());
             return runner.query(sql, new ArrayListHandler(), year, month, category);
-        }else if(year!=""&&month!=""){
+        }else if(!year.equals("") && !Objects.equals(month, "0")){
             String sql = "SELECT products.name,SUM(orderitem.buy_num) totalsalnum FROM orders,products,orderItem "
                     + "WHERE orders.id=orderItem.order_id AND products.id=orderItem.product_id "
                     + "AND orders.paystate=1 and year(ordertime)=? "
