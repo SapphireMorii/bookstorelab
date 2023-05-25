@@ -22,13 +22,13 @@ public class OrderDao {
      */
     public void addProduct(orders order) throws SQLException {
         // 1.生成Sql语句
-        String sql = "insert into orders values(?,?,0,null,0,?,?)";
+        String sql = "insert into orders values(?,?,0,null,0,?,?,?,?)";
         // 2.生成执行sql语句的QueryRunner,不传递参数
         QueryRunner runner = new QueryRunner();
         // 3.执行update()方法插入数据
         runner.update(JDBCutil.getConnection(), sql, order.getId(),
-                order.getMoney(), order
-                        .getUser().getId(),order.getReceiverAddress());
+                order.getMoney(), order.getReceiverName(),
+                order.getReceiverPhone(),order.getReceiverAddress(),order.getUser().getId());
 
     }
     /**
@@ -220,7 +220,7 @@ public class OrderDao {
                     user.setId(rs.getInt("user.id"));
                     user.setEmail(rs.getString("user.email"));
                     user.setGender(rs.getString("user.gender"));
-                    user.setActiveCode(rs.getString("user.activeCode"));
+                    user.setActiveCode(rs.getString("user.active_code"));
                     user.setIntroduce(rs.getString("user.introduce"));
                     user.setPassword(rs.getString("user.password"));
                     user.setRegistTime(rs.getDate("user.regist_time"));

@@ -208,9 +208,9 @@ public class ProductDao {
         List<products> products = new ArrayList<products>();
         Connection connection = JDBCutil.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        for(int i=1;i<=list.size();i++)
+        for(int i=0;i<list.size();i++)
         {
-            preparedStatement.setObject(i, list.get(i));
+            preparedStatement.setObject(i+1, list.get(i));
         }
         ResultSet rs = preparedStatement.executeQuery();
         return getProductList(rs, products);
@@ -231,7 +231,7 @@ public class ProductDao {
                 "set  name=?,price=?,category=?,pnum=?,description=? ";
         //判断是否有图片
         if (p.getImgurl() != null && p.getImgurl().trim().length() > 0) {
-            sql += " ,imgurl=?";
+            sql += " ,img_url=?";
             obj.add(p.getImgurl());
         }
         sql += " where id=?";
