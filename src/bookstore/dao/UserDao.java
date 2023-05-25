@@ -109,6 +109,7 @@ public class UserDao {
                 u.setRole(rs.getString("role"));
                 u.setUsername(rs.getString("username"));
                 u.setState(rs.getInt("state"));
+                return u;
             }
             return null;
         } catch (Exception e) {
